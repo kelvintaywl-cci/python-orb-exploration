@@ -11,8 +11,7 @@ jobs:
       - checkout
       - python/install-packages:
           pip-dependency-file: requirements.txt
-          # default package manager: pipenv
-          args: '--dev'
+          pkg-manager: pip
       - run:
           name: Check dependencies
           command: |
