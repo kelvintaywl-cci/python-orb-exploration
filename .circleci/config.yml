@@ -15,4 +15,5 @@ jobs:
       - run:
           name: Check dependencies
           command: |
-            pipenv graph
+            # pipenv graph does not work if we used pip to install deps
+            pipenv graph || true
