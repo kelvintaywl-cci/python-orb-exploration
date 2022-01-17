@@ -1,0 +1,19 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@1.5.0
+  
+jobs:
+  build:
+    # cimg/python:3.8 Docker image
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pip-dependency-file: requirements.txt
+          # default package manager: pipenv
+          args: '--dev'
+      - run:
+          name: Check dependencies
+          command: |
+            pipenv graph
